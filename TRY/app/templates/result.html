@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><h1>{{phrase.phras}}</h1></p>
+<p><span class="label label-default">Model:</span><strong> {{phrase.definition}}</strong></p>
+<p><i>Некоторые грамматические примечания:</i><br>
+{{phrase.comments}}</p>
+<p><i>Диахроническая справка: с чего начиналось:</i><br>
+{{phrase.diachron_tip}}</p>
+<p><i>Периодизация:</i></p>
+<div class="container">
+<table class="table">
+<thead>
+  <tr>
+    <th>Period</th><th>Examples</th>
+  </tr>
+</thead>
+<tbody>
+  {% for pr in periods %}
+  <tr>
+    <td>{{pr.prd}}</td>
+    <td>{{pr.examples}}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Результаты поиска по моделям выражений:</p>
+{% for d in definitions %}
+<p>{{d.phras}}</p>
+<p>{{d.definition}}</p>
+{% endfor %}
+<hr>
+{% endblock %}

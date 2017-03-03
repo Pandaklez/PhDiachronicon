@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for t in dates %}
+<p><h1>{{t.prd}}</h1></p>
+<p>{{t.examples}}</p>
+{% endfor %}
+<hr>
+{% endblock %}
