@@ -3,7 +3,7 @@
 {% block content %}
 {% for t in dates %}
 <p><h1>{{t.prd}}</h1></p>
-<p>{{t.examples}}</p>
+<p>{{t.examples|safe}}</p>
 {% endfor %}
 <hr>
 {% endblock %}

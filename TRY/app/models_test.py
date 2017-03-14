@@ -35,6 +35,8 @@ class Period(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     examples = db.Column(db.Text)
     prd = db.Column(db.String(40), index=True)
+    interval = db.Column(db.String(11), index=True)
+    comment = db.Column(db.String(400), index=True)
 #    phr = db.relationship('Phrase', backref='prd_html', lazy='dynamic')
     phrase_id = db.Column(db.Integer, db.ForeignKey('phrase.id'))
 #
