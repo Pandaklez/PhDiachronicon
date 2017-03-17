@@ -2,10 +2,38 @@
 
 {% block content %}
 <form action="/extended_search">
-  <label>Поиск примеров по датам:<input type="text" name="dates"></label><br>
-<!--  <label>Поиск по моделям:<input type="text" name="defin"></label><br> -->
-  <p><input type="submit" class="btn btn-default" value="search"></p>
+<!-- <div class="form-group">
+      <label for="sel1">Select list (select one):</label>
+      <select class="form-control" id="sel1">
+        <option>1997</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>  
+</div> -->
+<!-- <button type="submit" class="btn btn-default">Submit</button> -->
+
+<p>Поиск примеров по датам:<br>
+<small>Выберите один интересующий Вас период</small></p>
+<div class="radio">
+<label><input type="radio" name="dates" value="1800 – 1850">1800 – 1850</label>
+</div>
+<div class="radio">
+<label><input type="radio" name="dates" value="1850 – 1900">1850 – 1900<Br>
+</div>
+<div class="radio">
+<label><input type="radio" name="dates" value="1900 – 1950">1900 – 1950<Br>
+</div>
+<div class="radio">
+<label><input type="radio" name="dates" value="1950 – 2000">1950 – 2000<Br>
+</div>
+<div class="radio">
+<label><input type="radio" name="dates" value="21 век">21 век<Br>
+</div>
+<p><button type="submit" class="btn btn-default">Submit</button></p>
+
+</form>
+
 <p>Для поиска по моделям перейдите по ссылке:</p>
 <a href="{{ m_s }}" class="btn btn-primary" role="button">Поиск по модели >></a>
-</form>
 {% endblock %}

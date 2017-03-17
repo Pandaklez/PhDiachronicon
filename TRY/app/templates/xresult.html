@@ -1,9 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
+<p><h3>Результаты запроса: </h3></p>
+<div class="container">
+<table class="table">
+<thead>
+  <tr>
+    <th>Пример</th><th>Дата</th>
+  </tr>
+</thead>
+<tbody>
 {% for t in dates %}
-<p><h1>{{t.prd}}</h1></p>
-<p>{{t.examples|safe}}</p>
+<tr>
+<td><p>{{t.examples|safe}}</p></td>
+<td><p>{{t.prd}}</p></td>
+</tr>
 {% endfor %}
+</tbody>
+</table>
+</div>
 <hr>
 {% endblock %}

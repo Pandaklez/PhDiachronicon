@@ -4,6 +4,7 @@ from .models_test import *
 
 import json
 import os.path
+import re
 
 @app.route('/')
 def home():
@@ -56,9 +57,9 @@ def search():
     history = url_for('history')
     xsearch = url_for('xsearch')
     
-    bs = models_test.Phrase.query.all()
+#    bs = models_test.Phrase.query.all()
 #    b = models_test.History.query.all()
-    flash('%s' % bs)
+#    flash('%s' % bs)
 #    flash('%s' % b)
     if not os.path.exists('history.txt'):
         f = open('history.txt', 'w', encoding = 'utf-8')
@@ -106,9 +107,17 @@ def result():
     ssearch = url_for('search')
     history = url_for('history')
     xsearch = url_for('xsearch')
-    periods = Period.query.filter_by(phrase_id=p.id)
+    periods = models_test.Period.query.filter_by(phrase_id=p.id)
+
+    for pr in periods:
+        nm = models_test.Phrase.query.filter_by(id=pr.phrase_id).first().phras
+        new = r'<h1>' + nm + r'</h1>'
+        pr.examples = re.sub(new, nm, pr.examples)
+        db.session.add(pr)
+        db.session.commit()
+    #перезаписать данные в db
+    periods = models_test.Period.query.filter_by(phrase_id=p.id)
     
-#bs = models_test.Phrase.query.all()
     return render_template('result.html',
                            title='Results',
                            periods=periods,
@@ -126,13 +135,13 @@ def xsearch():
     xsearch = url_for('xsearch')
     m_s = url_for('models')
     
-    bs = models_test.Period.query.all()
-    flash('%s' % bs)
+#    bs = models_test.Period.query.all()
+#    flash('%s' % bs)
         
     if request.args:
-        global dt
         dat = request.args['dates']
-        dt = Period.query.filter_by(prd=dat)
+        global dt
+        dt = Period.query.filter_by(interval=dat)
         if dt != None:
             return redirect(url_for('xresult'))
         else:

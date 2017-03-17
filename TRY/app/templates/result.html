@@ -3,9 +3,12 @@
 {% block content %}
 <p><h1>{{phrase.phras}}</h1></p>
 <p><h3><strong>Model: </strong><span class="label label-info"><strong>{{phrase.definition}}</strong></span></h3></p>
+<p><h4><span class="label label-default">{{phrase.tag}}</span></h4></p>
 
 <p><h4>Некоторые грамматические примечания:</h4><br>
 {{phrase.comments|safe}}</p>
+
+<hr>
 
 <p><h4>Диахроническая справка:</h4><br>
 {{phrase.diachron_tip|safe}}</p>
@@ -30,4 +33,5 @@
 </tbody>
 </table>
 </div>
+<p<h2><strong>Вывод:</strong><span class="label label-success">{{phrase.implication}}</span></h2></p>
 {% endblock %}

@@ -6,10 +6,12 @@ class Phrase(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     phras = db.Column(db.String(60), index=True, unique=True)
     definition = db.Column(db.String(120), index=True, unique=True)
+    tag = db.Column(db.String(120), index=True, unique=True)
 #    requests = db.relationship('History', backref='author', lazy='dynamic')
     periods = db.relationship('Period', backref='phr_html', lazy='dynamic')
     comments = db.Column(db.String(400), index=True, unique=True)
     diachron_tip = db.Column(db.String(400), index=True, unique=True)
+    implication = db.Column(db.String(400), index=True, unique=True)
 #    period_id = db.Column(db.Integer, db.ForeignKey('period.id'))
 
 #    def __init__(self, phras, definition):
